@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 public class Player extends MobileElement{
 
 	private boolean alive;
+
 	
 	public Player() throws IOException {
 		// TODO Auto-generated constructor stub
@@ -22,8 +23,12 @@ public class Player extends MobileElement{
 		sprites.put("rightPlayer", rightPlayer);
 		BufferedImage downPlayer = baseImage.getSubimage(64,16,16,16);
 		sprites.put("downPlayer", downPlayer);
+		BufferedImage upPlayer = baseImage.getSubimage(32,80,16,16);
+		sprites.put("upPlayer", upPlayer);
 		this.setX(10);
 		this.setY(10);
+		
+		this.setActualSprite(staticPlayer);
 	}
 	public boolean isAlive() {
 		return alive;

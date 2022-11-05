@@ -82,15 +82,19 @@ public final class Controller implements IController {
 		switch (direction) {
 			case UP:
 				this.model.getPlayer().setY(this.model.getPlayer().getY()-1);
+				this.model.getPlayer().setActualSprite(this.model.getPlayer().getSprite("upPlayer"));
 				break;
 			case DOWN:
 				this.model.getPlayer().setY(this.model.getPlayer().getY()+1);
+				this.model.getPlayer().setActualSprite(this.model.getPlayer().getSprite("downPlayer"));
 				break;
 			case LEFT:
 				this.model.getPlayer().setX(this.model.getPlayer().getX()-1);
+				this.model.getPlayer().setActualSprite(this.model.getPlayer().getSprite("leftPlayer"));
 				break;
 			case RIGHT:
 				this.model.getPlayer().setX(this.model.getPlayer().getX()+1);
+				this.model.getPlayer().setActualSprite(this.model.getPlayer().getSprite("rightPlayer"));
 				break;
 			default:
 				break;

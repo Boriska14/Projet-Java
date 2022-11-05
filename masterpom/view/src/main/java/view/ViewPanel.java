@@ -63,7 +63,7 @@ class ViewPanel extends JPanel implements IObserver {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawImage(this.viewFrame.getModel().getPlayer().getSprite("staticPlayer"), this.viewFrame.getModel().getPlayer().getX()*ViewFrame.squaresize, this.viewFrame.getModel().getPlayer().getY()*ViewFrame.squaresize, null);
+		graphics.drawImage(this.viewFrame.getModel().getPlayer().getActualSprite(), this.viewFrame.getModel().getPlayer().getX()*ViewFrame.squaresize, this.viewFrame.getModel().getPlayer().getY()*ViewFrame.squaresize, null);
 		//graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
 	}
 
