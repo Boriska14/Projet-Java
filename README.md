@@ -1,2 +1,3 @@
-# Projet-Java
-ce dépôt permettra que les membres du groupe projet puisse chacun donner leur contribution à ce projet 
+# JPU-BlankProject
+
+Base de démarrage pour le projet Jave/POO/UML des 1ières années Exia-Cesi
