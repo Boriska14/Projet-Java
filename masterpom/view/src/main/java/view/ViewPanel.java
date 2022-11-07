@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import contract.IObserver;
+import entity.Element;
 
 /**
  * The Class ViewPanel.
@@ -62,7 +63,14 @@ class ViewPanel extends JPanel implements IObserver {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+		
+		for(int i=0; i<this.viewFrame.getModel().getMap().getHeight(); i++) {
+			for(int j=0; j<this.viewFrame.getModel().getMap().getWidth(); j++) {
+				graphics.drawImage(this.viewFrame.getModel().getMap().getElement(j, i).getActualSprite(), j*ViewFrame.squaresize, i*ViewFrame.squaresize, null);
+			}
+		}
+		
+		
 		graphics.drawImage(this.viewFrame.getModel().getPlayer().getActualSprite(), this.viewFrame.getModel().getPlayer().getX()*ViewFrame.squaresize, this.viewFrame.getModel().getPlayer().getY()*ViewFrame.squaresize, null);
 		//graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
 	}

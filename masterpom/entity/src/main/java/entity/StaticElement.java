@@ -1,6 +1,6 @@
 package entity;
 
-public class StaticElement {
+public class StaticElement extends Element {
 
 	protected Permeability permeability;
 	public StaticElement() {

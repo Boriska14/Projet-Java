@@ -15,6 +15,7 @@ public class Butterfly extends Enemy{
 		
 		BufferedImage butterfly1 = butterflyImage.getSubimage(160, 16, 16, 16);
 		sprites.put("but1", butterfly1);
+		setActualSprite(getSprite("but1"));
 		this.setX(10);
 		this.setY(10);
 	}

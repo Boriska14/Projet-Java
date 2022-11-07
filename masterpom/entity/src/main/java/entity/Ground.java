@@ -12,6 +12,8 @@ public class Ground extends StaticElement{
 		// TODO Auto-generated constructor 
 		permeability =Permeability.PENETRABLE;
 		BufferedImage groundImage = ImageIO.read(new File("sprites/ground.png"));
+		sprites.put("normalground", groundImage);
+		setActualSprite(getSprite("normalground"));
 	}
 
 }

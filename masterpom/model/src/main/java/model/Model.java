@@ -31,6 +31,8 @@ public final class Model implements IModel  {
 	 */
 	public Model() throws IOException {
 		this.map = new Map();
+		System.out.println(map);
+
 		this.player = new Player();
 	}
 	public Player getPlayer() {

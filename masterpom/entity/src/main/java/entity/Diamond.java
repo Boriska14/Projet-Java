@@ -12,6 +12,8 @@ public class Diamond extends MobileElement{
 		// TODO Auto-generated constructor stub
 		permeability = Permeability.POINT;
 		BufferedImage diamondImage = ImageIO.read(new File("sprites/diamond.png"));
+		sprites.put("diamond", diamondImage);
+		setActualSprite(getSprite("diamond"));
 	}
 	
 }

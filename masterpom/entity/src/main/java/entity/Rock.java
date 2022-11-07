@@ -12,6 +12,8 @@ public class Rock extends MobileElement{
 		// TODO Auto-generated constructor stub
 		permeability = Permeability.MOVABLE;
 		BufferedImage rockImage = ImageIO.read(new File("sprites/rock.png"));
+		sprites.put("normal", rockImage);
+		setActualSprite(getSprite("normal"));
 	}
 
 }
