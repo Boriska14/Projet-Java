@@ -12,8 +12,9 @@ public class Wall extends StaticElement{
 		// TODO Auto-generated constructor stub
 		permeability=Permeability.BLOCKING;
 		BufferedImage wallImage = ImageIO.read(new File("sprites/wall.png"));
-		sprites.put("normalWall", wallImage);
-		setActualSprite(getSprite("normalWall"));
+		//BufferedImage blackwall = wallImage.getSubimage(16, 16, 16, 16);
+		sprites.put("wallImage", wallImage);
+		setActualSprite(getSprite("wallImage"));
 	}
 	
 	

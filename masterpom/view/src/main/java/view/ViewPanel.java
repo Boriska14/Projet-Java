@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -72,7 +74,11 @@ class ViewPanel extends JPanel implements IObserver {
 		
 		
 		graphics.drawImage(this.viewFrame.getModel().getPlayer().getActualSprite(), this.viewFrame.getModel().getPlayer().getX()*ViewFrame.squaresize, this.viewFrame.getModel().getPlayer().getY()*ViewFrame.squaresize, null);
-		//graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
+		//graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(),10, 20);
+		Font aria = new Font("Aria", 10, 50);
+		graphics.setFont(aria);
+		graphics.setColor(Color.white);
+		graphics.drawString("Score:" + String.valueOf(this.viewFrame.getModel().getScore()), 10, 30);
 	}
 
 	@Override

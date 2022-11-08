@@ -4,7 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Element {
-	
+	protected Permeability permeability;
+	public Permeability getPermeability() {
+		return permeability;
+	}
+
+	public void setPermeability(Permeability permeability) {
+		this.permeability = permeability;
+	}
+
 	protected Map<String,BufferedImage> sprites = new HashMap<String,BufferedImage>();
 	private BufferedImage actualSprite;
 	

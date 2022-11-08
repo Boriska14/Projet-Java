@@ -19,4 +19,6 @@ public interface IController {
 	 *          the controller order
 	 */
 	public void orderPerform(Direction direction);
+	public void possibility();
+	public boolean canMove();
 }

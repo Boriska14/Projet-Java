@@ -1,6 +1,8 @@
 package model;
 
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import contract.IModel;
 import contract.IObserver;
@@ -34,6 +36,10 @@ public final class Model implements IModel  {
 		System.out.println(map);
 
 		this.player = new Player();
+	}
+	public void stopWatch(int seconds)	{
+		Timer timer = new Timer();
+		timer.schedule(new StopTask(),seconds*1000);
 	}
 	public Player getPlayer() {
 		return player;
