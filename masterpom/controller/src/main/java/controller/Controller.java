@@ -8,6 +8,7 @@ import entity.Permeability;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Scanner;
 
 import javax.swing.JLabel;
 
@@ -23,6 +24,7 @@ public final class Controller implements IController {
 	
 	
 	int  newPosition = 0;
+	boolean gameDone = false;
 	BufferedImage newSprite ;
 	/** The view. */
 	private IView		view;
@@ -91,8 +93,9 @@ public final class Controller implements IController {
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
+	
 	public void orderPerform(Direction direction) {
-
+		if(gameDone == false) {
 		int nextElementX = 0;
 		int nextElementY = 0;
 		int nextElement2X = 0;
@@ -114,6 +117,8 @@ public final class Controller implements IController {
 				case BLOCKING:
 					break;
 				case GAMEOVER:
+					gameDone=true;
+					this.view.printMessage("Game Over!");
 					break;
 				case MOVABLE:
 
@@ -144,7 +149,7 @@ public final class Controller implements IController {
 				
 				case POINT:
 					try {
-						this.model.getMap().setElement(nextElementX, nextElementY, new Ground());
+						this.model.getMap().setElement(nextElementX, nextElementY, new Floor());
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -152,7 +157,8 @@ public final class Controller implements IController {
 					this.model.getPlayer().setY(nextElementY);
 					this.model.getPlayer().setX(nextElementX);
 					this.model.getPlayer().setActualSprite(this.model.getPlayer().getSprite("upPlayer"));
-					this.model.setScore(this.model.getScore()+50);
+					this.model.setScore(this.model.getScore()+1);
+					
 					break;
 				default:
 					break;
@@ -174,6 +180,8 @@ public final class Controller implements IController {
 				case BLOCKING:
 					break;
 				case GAMEOVER:
+					gameDone=true;
+					this.view.printMessage("Game Over!");
 					break;
 				case MOVABLE:
 
@@ -204,7 +212,7 @@ public final class Controller implements IController {
 				
 				case POINT:
 					try {
-						this.model.getMap().setElement(nextElementX, nextElementY, new Ground());
+						this.model.getMap().setElement(nextElementX, nextElementY, new Floor());
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -212,7 +220,7 @@ public final class Controller implements IController {
 					this.model.getPlayer().setY(nextElementY);
 					this.model.getPlayer().setX(nextElementX);
 					this.model.getPlayer().setActualSprite(this.model.getPlayer().getSprite("downPlayer"));
-					this.model.setScore(this.model.getScore()+50);
+					this.model.setScore(this.model.getScore()+1);
 					break;
 				default:
 					break;
@@ -232,6 +240,8 @@ public final class Controller implements IController {
 				case BLOCKING:
 					break;
 				case GAMEOVER:
+					gameDone=true;
+					this.view.printMessage("Game Over!");
 					break;
 				case MOVABLE:
 
@@ -262,7 +272,7 @@ public final class Controller implements IController {
 				
 				case POINT:
 					try {
-						this.model.getMap().setElement(nextElementX, nextElementY, new Ground());
+						this.model.getMap().setElement(nextElementX, nextElementY, new Floor());
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -270,7 +280,7 @@ public final class Controller implements IController {
 					this.model.getPlayer().setY(nextElementY);
 					this.model.getPlayer().setX(nextElementX);
 					this.model.getPlayer().setActualSprite(this.model.getPlayer().getSprite("leftPlayer"));
-					this.model.setScore(this.model.getScore()+50);
+					this.model.setScore(this.model.getScore()+1);
 					break;
 				default:
 					break;
@@ -291,6 +301,8 @@ public final class Controller implements IController {
 				case BLOCKING:
 					break;
 				case GAMEOVER:
+					gameDone=true;
+					this.view.printMessage("Game Over!");
 					break;
 				case MOVABLE:
 
@@ -321,7 +333,7 @@ public final class Controller implements IController {
 				
 				case POINT:
 					try {
-						this.model.getMap().setElement(nextElementX, nextElementY, new Ground());
+						this.model.getMap().setElement(nextElementX, nextElementY, new Floor());
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -329,7 +341,7 @@ public final class Controller implements IController {
 					this.model.getPlayer().setY(nextElementY);
 					this.model.getPlayer().setX(nextElementX);
 					this.model.getPlayer().setActualSprite(this.model.getPlayer().getSprite("rightPlayer"));
-					this.model.setScore(this.model.getScore()+50);
+					this.model.setScore(this.model.getScore()+1);
 					break;
 				default:
 					break;
@@ -341,102 +353,15 @@ public final class Controller implements IController {
 		default:
 			break;
 	}
+		}
 				System.out.println(this.model.getPlayer().getY());
-			
+			if (this.model.getScore()==11) {
+				gameDone=true;
+				this.view.printMessage("Vous avez gagné!");
+			}
 	}
 	
 	
-	
-	/*public boolean canMove(Direction direction) {
-		int nextElementX = 0;
-		int nextElementY = 0;
-		int nextElement2X = 0;
-		int nextElement2Y = 0;
-		 
-		boolean test=false;
-
-		switch(direction) {
-		case DOWN:
-			nextElementX = this.model.getPlayer().getX();
-			nextElementY = this.model.getPlayer().getY()+1;
-			nextElement2X = this.model.getPlayer().getX();
-			nextElement2Y = this.model.getPlayer().getY()+2;
-			break;
-		case LEFT:
-			nextElementX = this.model.getPlayer().getX()-1;
-			nextElementY = this.model.getPlayer().getY();
-			nextElement2X = this.model.getPlayer().getX()-2;
-			nextElement2Y = this.model.getPlayer().getY();
-			break;
-		case RIGHT:
-			nextElementX = this.model.getPlayer().getX()+1;
-			nextElementY = this.model.getPlayer().getY();
-			nextElement2X = this.model.getPlayer().getX()+2;
-			nextElement2Y = this.model.getPlayer().getY();
-			break;
-		case STATIC:
-			break;
-		case UP:
-			nextElementX = this.model.getPlayer().getX();
-			nextElementY = this.model.getPlayer().getY()-1;
-			nextElement2X = this.model.getPlayer().getX();
-			nextElement2Y = this.model.getPlayer().getY()-2;
-			break;
-		default:
-			break;
-			
-		}
-	
-			
-		Element nextElement = this.model.getMap().getElement(nextElementX, nextElementY);
-		
-		if (nextElement.getPermeability() != Permeability.BLOCKING) {
-			return true;
-		}
-		return false;*/
-		
-	
-		/*switch(nextElement.getPermeability()) {
-		case BLOCKING:
-			break;
-		case GAMEOVER:
-			break;
-		case MOVABLE:
-
-			if ( ! ((this.model.getMap().getElement(nextElement2X, nextElement2Y)).getPermeability() == Permeability.PENETRABLE) ) {
-				break;
-			}
-			
-			this.model.getMap().setElement(nextElement2X, nextElement2X, nextElement);
-			try {
-				this.model.getMap().setElement(nextElementX, nextElementY, new Ground());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		case PENETRABLE:
-			
-			break;
-		r
-		case POINT:
-			try {
-				this.model.getMap().setElement(nextElementX, nextElementY, new Ground());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			this.model.getPlayer().setY(nextElementY);
-			this.model.getPlayer().setX(nextElementX);
-			this.model.getPlayer().setActualSprite(this.model.getPlayer().getSprite("upPlayer"));
-			this.model.setScore(this.model.getScore()+50);
-			break;
-		default:
-			break;
-		
-		}*/
-		
-		
 	
 	
 	

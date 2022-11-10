@@ -3,7 +3,10 @@ package contract;
 /**
  * The Interface IView.
  *
- * @author Jean-Aymeric Diet
+ * @author  BORISKA MBILONGO
+ * 			YOANN KEMMOGNE
+ *          PASSI TCHAGOUE
+ *          YOUSSAOU BOBOY
  */
 public interface IView {
 

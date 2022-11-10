@@ -1,18 +1,17 @@
 /**
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
+ * @author BORISKA MBILONGO
+ * 			YOANN KEMMOGNE
+ *          PASSI TCHAGOUE
+ *          YOUSSAOU BOBOY	
  */
 package main;
 
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 
-import contract.IController;
-import contract.IModel;
-import contract.IView;
+import java.io.IOException;
+import java.util.Scanner;
+
+
 import controller.Controller;
 import model.Model;
 import view.View;
@@ -20,7 +19,10 @@ import view.View;
 /**
  * The Class Main.
  *
- * @author Jean-Aymeric Diet
+ * @author BORISKA MBILONGO
+ * 			YOANN KEMMOGNE
+ *          PASSI TCHAGOUE
+ *          YOUSSAOU BOBOY
  */
 public abstract class Main {
 
@@ -32,13 +34,20 @@ public abstract class Main {
      * @throws IOException 
      */
     public static void main(final String[] args) throws IOException {
-        final Model model = new Model();
+    	int level;
+    	Scanner saisieUtilisateur = new Scanner(System.in);
+    	System.out.println("A quel niveau voulez vous acceder?");
+    	level = saisieUtilisateur.nextInt();
+
+    	saisieUtilisateur.close();
+    	
+        final Model model = new Model(level);
         final View view = new View(model);
         final Controller controller = new Controller(view, model);
         
         view.setController(controller);
 
-        controller.control();
+        
     	
         
     }

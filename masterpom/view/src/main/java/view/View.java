@@ -11,7 +11,10 @@ import contract.IView;
 /**
  * The Class View.
  *
- * @author Jean-Aymeric Diet
+ * @author BORISKA MBILONGO
+ * 			YOANN KEMMOGNE
+ *          PASSI TCHAGOUE
+ *          YOUSSAOU BOBOY
  */
 public final class View implements IView, Runnable {
 
@@ -68,6 +71,7 @@ public final class View implements IView, Runnable {
 	public void run() {
 		this.viewFrame.setVisible(true);
 	}
+
 
 	/**
 	 * Sets the controller.

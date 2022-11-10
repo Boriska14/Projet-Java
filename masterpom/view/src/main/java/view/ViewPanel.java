@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import contract.IObserver;
 import entity.Element;
+import entity.StopWatch;
 
 /**
  * The Class ViewPanel.
@@ -75,10 +76,11 @@ class ViewPanel extends JPanel implements IObserver {
 		
 		graphics.drawImage(this.viewFrame.getModel().getPlayer().getActualSprite(), this.viewFrame.getModel().getPlayer().getX()*ViewFrame.squaresize, this.viewFrame.getModel().getPlayer().getY()*ViewFrame.squaresize, null);
 		//graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(),10, 20);
-		Font aria = new Font("Aria", 10, 50);
+		Font aria = new Font("Aria", 10, 40);
 		graphics.setFont(aria);
 		graphics.setColor(Color.white);
 		graphics.drawString("Score:" + String.valueOf(this.viewFrame.getModel().getScore()), 10, 30);
+		//graphics.drawString("Time:"+ String.valueOf(new StopWatch(60)) , 20, 60);
 	}
 
 	@Override

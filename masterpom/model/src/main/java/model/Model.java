@@ -1,11 +1,12 @@
 package model;
 
+
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
+
 
 import contract.IModel;
 import contract.IObserver;
+
 
 //import java.sql.SQLException;
 //import java.util.Observable;
@@ -17,7 +18,10 @@ import entity.Player;
 /**
  * The Class Model.
  *
- * @author Jean-Aymeric Diet
+ * @author BORISKA MBILONGO
+ * 			YOANN KEMMOGNE
+ *          PASSI TCHAGOUE
+ *          YOUSSAOU BOBOY
  */
 public final class Model implements IModel  {
 
@@ -31,16 +35,19 @@ public final class Model implements IModel  {
 	 * Instantiates a new model.
 	 * @throws IOException 
 	 */
-	public Model() throws IOException {
-		this.map = new Map();
-		System.out.println(map);
-
+	public Model(String levelFolder) throws IOException {
+		
+		this.map = new Map(levelFolder);
 		this.player = new Player();
 	}
-	public void stopWatch(int seconds)	{
-		Timer timer = new Timer();
-		timer.schedule(new StopTask(),seconds*1000);
+	
+	public Model(int mapId) throws IOException {
+
+		this.map = new Map(mapId);
+		this.player = new Player();
 	}
+	
+
 	public Player getPlayer() {
 		return player;
 	}

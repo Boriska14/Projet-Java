@@ -10,7 +10,7 @@ public class Floor extends StaticElement {
 
 	public Floor() throws IOException {
 		// TODO Auto-generated constructor stub
-		
+		permeability= Permeability.PENETRABLE;
 		BufferedImage floorImage = ImageIO.read(new File("sprites/74359.png"));
 		BufferedImage underGround = floorImage.getSubimage(32, 0, 16, 16);
 		sprites.put("underGround", underGround);

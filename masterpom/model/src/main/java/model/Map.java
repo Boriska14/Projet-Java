@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import contract.IMap;
@@ -20,11 +21,53 @@ public class Map implements IMap{
 	private Element table[][];
 	private int width = 40;
 	private int height = 30;
-	private  String levelFolder = "level/Level1.txt";
-	public Map() throws IOException {
-		this.getMap();
+	private String levelFolder;
+	private int id ;
+	DAOMap dao = new DAOMap(DBConnection.getInstance().getConnection());
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getLevelFolder() {
+		return levelFolder;
+	}
+	public void setLevelFolder(String levelFolder) {
+		this.levelFolder = levelFolder;
+	}
+	public Map(String levelFolder) throws IOException {
+		this.getMap(levelFolder);
+		this.levelFolder = levelFolder;
+		
+		/*try {
+			dao.create(this);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+	}
+	public Map(int id) {
+		try {
+			Map map = dao.find(id);
+			this.id=id;
+			this.levelFolder=map.getLevelFolder();
+			try {
+				this.getMap(levelFolder);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
+	public Map() {
+	
+	}
 	public Element[][] getTable() {
 		return table;
 	}
@@ -49,9 +92,7 @@ public class Map implements IMap{
 		return height;
 	}
 	
-	public void getMap() throws IOException {
-	
-		
+	public void getMap(String levelFolder) throws IOException {
 		
 		File file = new File(levelFolder);
 		FileReader fr = new FileReader(file);
@@ -112,15 +153,8 @@ public class Map implements IMap{
 	}
 
 	
-	private FileReader FileReader() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	private BufferedReader BufferedReader(FileReader fr) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	
 	
 	

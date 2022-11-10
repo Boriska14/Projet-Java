@@ -13,7 +13,7 @@ public class Butterfly extends Enemy{
 		// TODO Auto-generated constructor stub
 		BufferedImage butterflyImage = ImageIO.read(new File("sprites/74359.png"));
 		
-		BufferedImage butterfly1 = butterflyImage.getSubimage(160, 16, 16, 16);
+		BufferedImage butterfly1 = butterflyImage.getSubimage(144, 16, 16, 16);
 		sprites.put("but1", butterfly1);
 		setActualSprite(getSprite("but1"));
 		this.setX(10);
