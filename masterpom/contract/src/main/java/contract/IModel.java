@@ -6,7 +6,7 @@ import entity.Player;
 /**
  * The Interface IModel.
  *
- * @author Jean-Aymeric Diet
+ * @author Boriska mbilongo
  */
 public interface IModel {
 	public Player getPlayer();

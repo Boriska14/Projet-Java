@@ -21,9 +21,7 @@ public class MapTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		Map map
-		//	table[x][y] = element;
-			this.map=map;
+		
 	}
 
 	@After

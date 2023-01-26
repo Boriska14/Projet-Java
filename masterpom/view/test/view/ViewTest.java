@@ -1,6 +1,6 @@
 package view;
 
-import static org.junit.Assert.*;
+
 
 import javax.swing.SwingUtilities;
 
@@ -38,6 +38,12 @@ public class ViewTest implements Runnable {
 		//fail("Not yet implemented");
 		//this.viewFrame = new ViewFrame(model);
 		//SwingUtilities.invokeLater(this);
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

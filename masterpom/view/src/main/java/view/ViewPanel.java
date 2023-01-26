@@ -3,23 +3,18 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.Observable;
-import java.util.Observer;
 
-import javax.imageio.ImageIO;
+
 import javax.swing.JPanel;
 
 import contract.IObserver;
-import entity.Element;
-import entity.StopWatch;
+
+
 
 /**
  * The Class ViewPanel.
  *
- * @author Jean-Aymeric Diet
+ * @author Boriska Mbilongo
  */
 class ViewPanel extends JPanel implements IObserver {
 
