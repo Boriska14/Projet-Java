@@ -29,7 +29,7 @@ public class ControllerTest {
 	}
 
 	@Test
-	public final void test() {
+	public final void test(pview) {
 		Object pview = null;
 		//fail("Not yet implemented");
 		this.view = pview;
